@@ -114,7 +114,7 @@ php artisan serve
 Dashboard - Input Data Magang
 User interface for managing internship data including participant information and division selection.
 
-![Dashboard](docs/dashboard.jpeg)
+![Dashboard](docs/dashboard.JPEG)
 
 ---
 
