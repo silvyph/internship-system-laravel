@@ -77,6 +77,31 @@
             required>{{ old('address', $intern->address ?? '') }}</textarea>
     </div>
 
+    <div class="col-md-6 mb-3">
+        <label for="mapel1" class="form-label">Mata Pelajaran 1</label>
+        <input type="text" name="mapel1" id="mapel1" class="form-control" value="{{ old('mapel1', $intern->mapel1 ?? '') }}">
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label for="mapel2" class="form-label">Mata Pelajaran 2</label>
+        <input type="text" name="mapel2" id="mapel2" class="form-control" value="{{ old('mapel2', $intern->mapel2 ?? '') }}">
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label for="skill_teknis" class="form-label">Skill Teknis</label>
+        <input type="text" name="skill_teknis" id="skill_teknis" class="form-control" value="{{ old('skill_teknis', $intern->skill_teknis ?? '') }}">
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label for="sertifikasi" class="form-label">Sertifikasi</label>
+        <input type="text" name="sertifikasi" id="sertifikasi" class="form-control" value="{{ old('sertifikasi', $intern->sertifikasi ?? '') }}">
+    </div>
+
+    <div class="col-md-12 mb-3">
+        <label for="proyek" class="form-label">Proyek</label>
+        <input type="text" name="proyek" id="proyek" class="form-control" value="{{ old('proyek', $intern->proyek ?? '') }}">
+    </div>
+
     {{-- <div class="col-md-12 mb-3">
         <label for="status" class="form-label">Status</label>
         <input type="text" name="status" class="form-control"

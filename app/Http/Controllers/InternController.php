@@ -73,14 +73,14 @@ class InternController extends Controller
         return redirect()->route('intern.index')->with('success', 'Intern created.');
     }
 
-    public function edit(Intern $Intern)
+    public function edit(Intern $intern)
     {
         $users = User::where('role', 'peserta')->get();
         $divisions = Division::all();
-        return view('intern.edit', compact('Intern', 'users', 'divisions'));
+        return view('intern.edit', compact('intern', 'users', 'divisions'));
     }
 
-    public function update(Request $request, Intern $Intern)
+    public function update(Request $request, Intern $intern)
     {
         $request->validate([
             'letter_date' => 'required|date',
@@ -106,22 +106,22 @@ class InternController extends Controller
         foreach (['request_letter', 'acceptance_letter', 'kesbangpol_letter', 'documentation'] as $field) {
             if ($request->hasFile($field)) {
                 // Hapus file lama jika ada
-                if ($Intern->$field) {
-                    Storage::disk('public')->delete($Intern->$field);
+                if ($intern->$field) {
+                    Storage::disk('public')->delete($intern->$field);
                 }
 
                 $data[$field] = $request->file($field)->store("intern/$field", 'public');
             }
         }
 
-        $Intern->update($data);
+        $intern->update($data);
 
         return redirect()->route('user.dashboard')->with('success', 'Intern updated.');
     }
 
-    public function destroy(Intern $Intern)
+    public function destroy(Intern $intern)
     {
-        $Intern->delete();
+        $intern->delete();
         return redirect()->route('intern.index')->with('success', 'Intern deleted.');
     }
 
@@ -177,7 +177,7 @@ class InternController extends Controller
 
             if (isset($result['success']) && $result['success']) {
                 // Cari division_id berdasarkan nama divisi yang diprediksi
-                $division = Division::where('name', $result['predicted_divisi'])->first();
+                $division = Division::whereRaw('LOWER(name) = ?', [strtolower($result['predicted_divisi'])])->first();
 
                 if (!$division) {
                     return response()->json([

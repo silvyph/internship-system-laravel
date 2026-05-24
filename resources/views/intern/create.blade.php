@@ -21,6 +21,11 @@
                     const institutionInput = document.querySelector('input[name="institution_name"]');
                     const startDateInput = document.querySelector('input[name="start_date"]');
                     const endDateInput = document.querySelector('input[name="end_date"]');
+                    const mapel1Input = document.querySelector('input[name="mapel1"]');
+                    const mapel2Input = document.querySelector('input[name="mapel2"]');
+                    const skillTeknisInput = document.querySelector('input[name="skill_teknis"]');
+                    const sertifikasiInput = document.querySelector('input[name="sertifikasi"]');
+                    const proyekInput = document.querySelector('input[name="proyek"]');
                     const divisionSelect = document.querySelector('select[name="division_id"]');
                     const badge = document.getElementById('recommended-badge');
 
@@ -41,7 +46,12 @@
                                     major: major,
                                     institution_name: institution,
                                     start_date: startDate,
-                                    end_date: endDate
+                                    end_date: endDate,
+                                    mapel1: mapel1Input.value.trim(),
+                                    mapel2: mapel2Input.value.trim(),
+                                    skill_teknis: skillTeknisInput.value.trim(),
+                                    sertifikasi: sertifikasiInput.value.trim(),
+                                    proyek: proyekInput.value.trim()
                                 })
                             })
                             .then(res => res.json())
@@ -67,6 +77,11 @@
                     institutionInput.addEventListener('blur', recommendDivision);
                     startDateInput.addEventListener('change', recommendDivision);
                     endDateInput.addEventListener('change', recommendDivision);
+                    mapel1Input.addEventListener('blur', recommendDivision);
+                    mapel2Input.addEventListener('blur', recommendDivision);
+                    skillTeknisInput.addEventListener('blur', recommendDivision);
+                    sertifikasiInput.addEventListener('blur', recommendDivision);
+                    proyekInput.addEventListener('blur', recommendDivision);
                 });
             </script>
         @endpush

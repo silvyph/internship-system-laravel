@@ -65,5 +65,6 @@ Route::get('files/download/{file}', [FileController::class, 'download'])->name('
 Route::patch('/request/{intern}/status/{status}', [InternController::class, 'updateStatus'])->name('intern.updateStatus');
 
 Route::post('/intern/recommend', [InternController::class, 'recommendDivision'])->name('intern.recommend');
+Route::get('/intern/knn-health', [InternController::class, 'checkKnnHealth'])->name('intern.knnHealth');
 
 require __DIR__.'/auth.php';

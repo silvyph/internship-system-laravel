@@ -12,7 +12,8 @@ class Intern extends Model
         'letter_date', 'institution_name', 'major', 'division_id', 'user_id',
         'start_date', 'end_date', 'request_letter', 'acceptance_letter',
         'kesbangpol_letter', 'documentation', 'name', 'email', 'address',
-        'date_of_birth', 'phone', 'status',
+        'date_of_birth', 'phone', 'status', 'mapel1', 'mapel2',
+        'skill_teknis', 'sertifikasi', 'proyek',
     ];
 
     public function division()

@@ -11,8 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('interns', function (Blueprint $table) {
+        Schema::create('internships_new', function (Blueprint $table) {
             $table->id();
+            $table->date('letter_date');
+            $table->string('institution_name');
+            $table->string('major');
+            $table->foreignId('division_id')->nullable()->constrained('divisions')->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('request_letter')->nullable();
+            $table->string('acceptance_letter')->nullable();
+            $table->string('kesbangpol_letter')->nullable();
+            $table->string('documentation')->nullable();
+            $table->string('name');
+            $table->string('email');
+            $table->text('address');
+            $table->date('date_of_birth');
+            $table->string('phone');
+            $table->string('status')->default('Mendaftar');
             $table->timestamps();
         });
     }
@@ -22,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('interns');
+        Schema::dropIfExists('internships_new');
     }
 };
